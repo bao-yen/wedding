@@ -3,7 +3,6 @@ name: Deploy Wedding Site to GitHub Pages
 on:
   push:
     branches:
-      - main
       - develop
 
 permissions:
@@ -27,17 +26,24 @@ jobs:
       - name: Checkout source
         uses: actions/checkout@v4
 
+      # Cài pnpm trước
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      # Sau đó mới setup Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: npm
+          cache: pnpm
 
       - name: Install dependencies
-        run: npm ci
+        run: pnpm install --frozen-lockfile
 
       - name: Build website
-        run: npm run build
+        run: pnpm build
 
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v5
