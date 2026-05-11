@@ -5,9 +5,9 @@ import { useState } from "react";
 
 // Dữ liệu ảnh cô dâu chú rể - bạn có thể thay đổi đường dẫn ảnh ở đây
 const WEDDING_PHOTOS = [
-  "/image/slide/2.jpg",
-  "/image/slide/3.jpg",
-  "/image/slide/1.jpg",
+  import.meta.env.BASE_URL + "image/slide/2.jpg",
+  import.meta.env.BASE_URL + "image/slide/3.jpg",
+  import.meta.env.BASE_URL + "image/slide/1.jpg",
 ];
 
 // Dữ liệu lịch tháng 6/2026

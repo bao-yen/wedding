@@ -203,7 +203,7 @@ export default function AboutSection() {
                   <div className="aspect-[3/4] bg-gradient-to-br from-gray-100 to-gray-200 relative overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10" />
                     <img
-                      src="/image/chú rể.JPG"
+                      src={import.meta.env.BASE_URL + "image/chú rể.JPG"}
                       alt="Chú Rể"
                       className="w-full h-full object-cover object-center"
                       loading="lazy"
@@ -252,7 +252,7 @@ export default function AboutSection() {
                   <div className="aspect-[3/4] bg-gradient-to-br from-gray-100 to-gray-200 relative overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-br from-accent/10 to-primary/10" />
                     <img
-                      src="/image/cô dâu.JPG"
+                      src={import.meta.env.BASE_URL + "/image/cô dâu.JPG"}
                       alt="Cô Dâu"
                       className="w-full h-full object-cover object-center"
                       loading="lazy"

@@ -27,7 +27,7 @@ export default function RsvpSection() {
 
             <div className="bg-white p-8 rounded-lg shadow-lg border border-border text-center">
               <img
-                src="/img/qr_code.jpg"
+                src={import.meta.env.BASE_URL + "img/qr_code.jpg"}
                 alt="QR Code Chuyển Khoản"
                 className="w-full h-full object-contain"
               />

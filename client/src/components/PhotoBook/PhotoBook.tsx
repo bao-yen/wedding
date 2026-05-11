@@ -4,21 +4,21 @@ import { RotateCcw, ChevronLeft, ChevronRight } from "lucide-react";
 
 // Danh sách ảnh từ folder "album"
 const PHOTOS = [
-  "/image/album/1.jpeg",
-  "/image/album/2.jpeg",
-  "/image/album/3.jpeg",
-  "/image/album/4.jpeg",
-  "/image/album/5.jpeg",
-  "/image/album/6.jpeg",
-  "/image/album/7.JPG",
-  "/image/album/8.jpeg",
-  "/image/album/9.jpeg",
-  "/image/album/10.jpeg",
-  "/image/album/11.jpeg",
-  "/image/album/12.jpeg",
-  "/image/album/13.jpeg",
-  "/image/album/14.jpeg",
-  "/image/album/15.jpeg",
+  import.meta.env.BASE_URL + "image/album/1.jpeg",
+  import.meta.env.BASE_URL + "image/album/2.jpeg",
+  import.meta.env.BASE_URL + "image/album/3.jpeg",
+  import.meta.env.BASE_URL + "image/album/4.jpeg",
+  import.meta.env.BASE_URL + "image/album/5.jpeg",
+  import.meta.env.BASE_URL + "image/album/6.jpeg",
+  import.meta.env.BASE_URL + "image/album/7.JPG",
+  import.meta.env.BASE_URL + "image/album/8.jpeg",
+  import.meta.env.BASE_URL + "image/album/9.jpeg",
+  import.meta.env.BASE_URL + "image/album/10.jpeg",
+  import.meta.env.BASE_URL + "image/album/11.jpeg",
+  import.meta.env.BASE_URL + "image/album/12.jpeg",
+  import.meta.env.BASE_URL + "image/album/13.jpeg",
+  import.meta.env.BASE_URL + "image/album/14.jpeg",
+  import.meta.env.BASE_URL + "image/album/15.jpeg",
 ];
 
 export default function PhotoBook() {
