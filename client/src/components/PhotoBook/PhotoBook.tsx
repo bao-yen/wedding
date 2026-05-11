@@ -2,17 +2,23 @@ import { useState } from "react";
 import { motion, useMotionValue, useTransform, AnimatePresence } from "framer-motion";
 import { RotateCcw, ChevronLeft, ChevronRight } from "lucide-react";
 
-// Danh sách ảnh từ folder "9 ảnh khung"
+// Danh sách ảnh từ folder "album"
 const PHOTOS = [
-  "/image/9 ảnh khung /2S8A8195.webp",
-  "/image/9 ảnh khung /2S8A8292.webp",
-  "/image/9 ảnh khung /2S8A8545.webp",
-  "/image/9 ảnh khung /2S8A9116 (1).webp",
-  "/image/9 ảnh khung /2S8A9194.webp",
-  "/image/9 ảnh khung /PHIT1038.webp",
-  "/image/9 ảnh khung /PHIT1048.webp",
-  "/image/9 ảnh khung /PHIT1064.webp",
-  "/image/9 ảnh khung /PHIT1489.webp",
+  "/image/album/1.jpeg",
+  "/image/album/2.jpeg",
+  "/image/album/3.jpeg",
+  "/image/album/4.jpeg",
+  "/image/album/5.jpeg",
+  "/image/album/6.jpeg",
+  "/image/album/7.JPG",
+  "/image/album/8.jpeg",
+  "/image/album/9.jpeg",
+  "/image/album/10.jpeg",
+  "/image/album/11.jpeg",
+  "/image/album/12.jpeg",
+  "/image/album/13.jpeg",
+  "/image/album/14.jpeg",
+  "/image/album/15.jpeg",
 ];
 
 export default function PhotoBook() {
@@ -251,27 +257,12 @@ function SwipeCard({ photo, index, total, onSwipe, direction }: SwipeCardProps) 
         {/* Photo Info */}
         <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 text-white">
           <h3 className="font-script text-2xl sm:text-3xl md:text-4xl mb-1 sm:mb-2">
-            Xuân Tươi & Văn Thưởng
+            Bảo Yến & Phong Nhã
           </h3>
           <p className="font-serif text-xs sm:text-sm md:text-base opacity-90">
             Khoảnh khắc {index + 1} / {total}
           </p>
         </div>
-
-        {/* Swipe Indicators */}
-        <motion.div
-          className="absolute top-4 sm:top-8 left-4 sm:left-8 bg-red-500 text-white px-4 py-2 sm:px-6 sm:py-3 rounded-lg sm:rounded-xl font-bold text-lg sm:text-2xl rotate-[-20deg] border-2 sm:border-4 border-white shadow-2xl"
-          style={{ opacity: useTransform(x, [-100, 0], [1, 0]) }}
-        >
-          SKIP
-        </motion.div>
-
-        <motion.div
-          className="absolute top-4 sm:top-8 right-4 sm:right-8 bg-green-500 text-white px-4 py-2 sm:px-6 sm:py-3 rounded-lg sm:rounded-xl font-bold text-lg sm:text-2xl rotate-[20deg] border-2 sm:border-4 border-white shadow-2xl"
-          style={{ opacity: useTransform(x, [0, 100], [0, 1]) }}
-        >
-          LIKE
-        </motion.div>
       </div>
     </motion.div>
   );

@@ -1,62 +1,62 @@
 export const WEDDING_DATA = {
   groom: {
-    name: "Văn Thưởng",
-    fullName: "Vũ Văn Thưởng",
-    father: "Vũ Văn Năm",
-    mother: "Vũ Thị Hoa",
-    address: "Đông Hành Quần, Nam Minh, Ninh Bình",
-    mapUrl: "https://maps.app.goo.gl/j3eKNKFNoaQxtsom9",
-    mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3740.5!2d106.190396!3d20.310326!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1svi!2s!4v1734549600000!5m2!1svi!2s"
+    name: "Phong Nhã",
+    fullName: "Nguyễn Phong Nhã",
+    father: "Nguyễn Duy Thủy",
+    mother: "Chu Thị Thiển",
+    address: "Khối 3, Xã Tân Kỳ, Nghệ An",
+    mapUrl: "https://maps.app.goo.gl/jryfRBdfPSPHvXVB8",
+    mapEmbedUrl: "https://www.google.com/maps/embed?pb=!4v1778477275507!6m8!1m7!1spleZ7zxaY7Y_N9JNbUUyLQ!2m2!1d19.05015524294096!2d105.2653866130396!3f353.59024!4f0!5f0.7820865974627469"
   },
   bride: {
-    name: "Xuân Tươi",
-    fullName: "Trương Thị Xuân Tươi",
-    father: "Trương Văn Tăng",
-    mother: "Bùi Thị Thanh",
-    address: "Số nhà 16, Xóm Giữa, Thôn Họa Đống, Ứng Thiên, Hà Nội",
-    mapUrl: "https://maps.google.com/?q=Số+nhà+16,+Xóm+Giữa,+Thôn+Họa+Đống,+Ứng+Thiên,+Hà+Nội",
-    mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3725.0!2d105.8!3d20.9!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjDCsDU0JzAwLjAiTiAxMDXCsDQ4JzAwLjAiRQ!5e0!3m2!1svi!2s!4v1"
+    name: "Bảo Yến",
+    fullName: "Vũ Thị Bảo Yến",
+    father: "Vũ Quang Mười",
+    mother: "Đặng Thị Lượng",
+    address: "Xóm Kỳ Nam, Xã Tân Kỳ, Nghệ An",
+    mapUrl: "https://maps.app.goo.gl/oH8RK9ct3kfHTXco9",
+    mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3771.5648329430537!2d105.232097!3d19.038887999999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTnCsDAyJzIwLjAiTiAxMDXCsDEzJzU1LjYiRQ!5e0!3m2!1sen!2s!4v1778476993951!5m2!1sen!2s"
   },
-  date: "2025-12-28",
+  date: "2026-06-06",
   time: "10:00",
   schedule: [
     {
-      time: "07:00",
-      date: "28/12/2025",
+      time: "08:00",
+      date: "06/06/2026",
       title: "Lễ Ăn Hỏi",
       description: "Nghi thức truyền thống tại nhà gái"
     },
     {
-      time: "08:30",
-      date: "28/12/2025",
+      time: "11:00",
+      date: "06/06/2026",
       title: "Lễ Thành Hôn",
       description: "Trao nhẫn và lời thề nguyện"
     },
     {
       time: "11:30",
-      date: "28/12/2025",
+      date: "06/06/2026",
       title: "Tiệc Chiêu Đãi",
       description: "Chung vui cùng gia đình và bạn bè"
     }
   ],
   bank: {
-    accountName: "Trương Thị Xuân Tươi",
-    accountNumber: "19039064982014",
-    bankName: "Techcombank",
+    accountName: "Vũ Thị Bảo Yến",
+    accountNumber: "04123658888",
+    bankName: "TPBank",
     qrCode: "" // Placeholder for QR code image URL
   },
   quotes: [
     {
-      text: "Yêu không chỉ là nhìn nhau, mà là cùng nhau nhìn về một hướng.",
-      author: "Antoine de Saint-Exupéry"
+      text: "Tình yêu đích thực không có cái kết viên mãn, bởi vì tình yêu đích thực là không bao giờ kết thúc.",
+      author: "Richard Bach"
     },
     {
-      text: "Hạnh phúc là được cùng em đi đến cuối con đường.",
-      author: "Vũ Văn Thưởng"
+      text: "Gặp gỡ là duyên phận do trời định, nhưng chọn nắm tay nhau đi đến cuối đời lại là sự kiên định của cả hai.",
+      author: "Khuyết danh"
     },
     {
-      text: "Trăm năm tình viên mãn, bạc đầu nghĩa phu thê.",
-      author: "Tục ngữ"
+      text: "Một cuộc hôn nhân hạnh phúc là một cuộc trò chuyện dài mà cả hai đều cảm thấy quá ngắn.",
+      author: "André Maurois"
     }
   ]
 };

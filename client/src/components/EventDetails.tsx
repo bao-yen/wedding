@@ -53,7 +53,7 @@ export default function EventDetails() {
               <Sparkles className="w-6 h-6" />
             </div>
           </motion.div>
-          <h2 className="font-script text-6xl md:text-7xl bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent mb-6">
+          <h2 className="font-script text-6xl md:text-7xl leading-[80px] py-4 bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent mb-6">
             Sự Kiện Cưới
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-transparent via-primary to-transparent mx-auto mb-6" />

@@ -122,7 +122,7 @@ export default function AboutSection() {
               <Sparkles className="w-6 h-6" />
             </div>
           </motion.div>
-          <h2 className="font-script text-6xl md:text-7xl leading-[80px] bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent mb-6">
+          <h2 className="font-script text-6xl md:text-7xl leading-[80px] py-4 bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent mb-6">
             Our Love Story
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-transparent via-accent to-transparent mx-auto mb-6" />
@@ -147,28 +147,28 @@ export default function AboutSection() {
           <TimelineItem 
             year="2024" 
             title="Lần đầu gặp gỡ" 
-            description="Một ngày mùa thu đẹp trời, chúng mình tình cờ gặp nhau tại một quán cà phê nhỏ. Từ ánh mắt đầu tiên, chúng mình đã biết đây là duyên phận." 
+            description='Một ngày đầu thu Hà Nội, trong cuộc gặp gỡ tưởng chừng rất tình cờ, chúng mình đã có cơ hội biết đến nhau. Lần đầu gặp mặt, em còn ngây ngô nhờ anh giới thiệu người yêu cho mình, ngờ đâu người mà anh "nhiệt tình" giới thiệu lại chính là... bản thân anh!'
             align="left"
             icon="first"
           />
           <TimelineItem 
             year="2024" 
             title="Lời tỏ tình" 
-            description="Dưới bầu trời đầy sao, anh đã ngỏ lời và em đã gật đầu đồng ý. Khoảnh khắc ấy sẽ mãi khắc sâu trong trái tim chúng mình." 
+            description="Hành trình từ 'người được mai mối' trở thành người yêu chính thức chẳng hề dễ dàng, bởi anh đã phải kiên nhẫn ngỏ lời tới tận lần thứ 3 mới nhận được sự đồng ý. Chính sự chân thành và kiên định không bỏ cuộc ấy đã hoàn toàn thuyết phục được em, đánh dấu một cột mốc ngọt ngào mới của hai đứa." 
             align="right"
             icon="confession"
           />
           <TimelineItem 
-            year="2025" 
+            year="2026" 
             title="Cầu hôn" 
-            description="Khoảnh khắc thiêng liêng khi anh quỳ xuống và trao chiếc nhẫn đính ước. Em đã rơi nước mắt hạnh phúc và nói 'Yes' với tương lai bên anh."
+            description="Từ anh chàng tự 'mai mối' bất đắc dĩ, đến hành trình 3 lần tỏ tình gian nan, cuối cùng anh cũng quỳ gối trao chiếc nhẫn định mệnh. Lần này thì chẳng cần đến 3 lần hỏi, bởi ánh mắt rưng rưng và cái gật đầu hạnh phúc ngay lập tức của em đã thay cho mọi lời đồng ý trọn đời."
             align="left"
             icon="proposal"
           />
           <TimelineItem 
-            year="2025"
+            year="2026"
             title="Ngày chung đôi"
-            description="Chúng mình chính thức về chung một nhà, bắt đầu hành trình hạnh phúc mới. Cảm ơn bạn đã đến tham dự ngày trọng đại của chúng mình!"
+            description="Từ hai người xa lạ được bạn bè mai mối, giới thiệu, giờ đây chúng mình đã chính thức nắm tay nhau bước lên lễ đường. Cùng nhau chia sẻ buồn vui, cùng nhau xây dựng tổ ấm. Cảm ơn bạn đã luôn ở đây, đồng hành và chúc mừng cho hai đứa!"
             align="right"
             icon="wedding"
           />
@@ -203,7 +203,7 @@ export default function AboutSection() {
                   <div className="aspect-[3/4] bg-gradient-to-br from-gray-100 to-gray-200 relative overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10" />
                     <img
-                      src="/image/website đám cưới/2S8A8349.webp"
+                      src="/image/chú rể.JPG"
                       alt="Chú Rể"
                       className="w-full h-full object-cover object-center"
                       loading="lazy"
@@ -252,7 +252,7 @@ export default function AboutSection() {
                   <div className="aspect-[3/4] bg-gradient-to-br from-gray-100 to-gray-200 relative overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-br from-accent/10 to-primary/10" />
                     <img
-                      src="/image/20 video/PHIT1039.webp"
+                      src="/image/cô dâu.JPG"
                       alt="Cô Dâu"
                       className="w-full h-full object-cover object-center"
                       loading="lazy"

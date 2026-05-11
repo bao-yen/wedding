@@ -5,23 +5,22 @@ import { useState } from "react";
 
 // Dữ liệu ảnh cô dâu chú rể - bạn có thể thay đổi đường dẫn ảnh ở đây
 const WEDDING_PHOTOS = [
-  "/image/9 ảnh khung /2S8A8195.webp",
-  "/image/9 ảnh khung /2S8A8292.webp",
-  "/image/9 ảnh khung /2S8A9116 (1).webp",
-  "/image/9 ảnh khung /PHIT1048.webp",
+  "/image/slide/2.jpg",
+  "/image/slide/3.jpg",
+  "/image/slide/1.jpg",
 ];
 
-// Dữ liệu lịch tháng 12/2025
+// Dữ liệu lịch tháng 6/2026
 const CALENDAR_DATA = {
-  month: 12,
-  year: 2025,
-  weddingDay: 28,
+  month: 6,
+  year: 2026,
+  weddingDay: 6,
   days: [
     { date: 1 }, { date: 2 }, { date: 3 }, { date: 4 }, { date: 5 }, { date: 6 }, { date: 7 },
     { date: 8 }, { date: 9 }, { date: 10 }, { date: 11 }, { date: 12 }, { date: 13 }, { date: 14 },
     { date: 15 }, { date: 16 }, { date: 17 }, { date: 18 }, { date: 19 }, { date: 20 }, { date: 21 },
     { date: 22 }, { date: 23 }, { date: 24 }, { date: 25 }, { date: 26 }, { date: 27 }, { date: 28 },
-    { date: 29 }, { date: 30 }, { date: 31 },
+    { date: 29 }, { date: 30 },
   ],
 };
 
@@ -215,36 +214,36 @@ export default function InvitationCard() {
                   {/* Time and Date Info */}
                   <div className="space-y-6 max-w-md mx-auto">
                     {/* Time */}
-                    <div className="flex items-center justify-center gap-4">
-                      <div className="flex-1 h-px bg-gradient-to-r from-transparent to-red-800" />
-                      <div className="text-center">
-                        <p className="text-sm text-red-800/70 font-medium mb-1">Thời gian</p>
-                        <p className="text-2xl md:text-3xl font-bold text-red-900">12:00</p>
+                    <div className="text-center space-y-1">
+                      <p className="text-sm text-red-800/70 font-medium">Thời gian</p>
+                      <div className="flex items-center justify-center gap-4">
+                        <div className="flex-1 h-px bg-gradient-to-r from-transparent to-red-800" />
+                        <p className="text-2xl md:text-3xl font-bold text-red-900 whitespace-nowrap">12:00</p>
+                        <div className="flex-1 h-px bg-gradient-to-l from-transparent to-red-800" />
                       </div>
-                      <div className="flex-1 h-px bg-gradient-to-l from-transparent to-red-800" />
                     </div>
 
                     {/* Date */}
-                    <div className="flex items-center justify-center gap-4">
-                      <div className="flex-1 h-px bg-gradient-to-r from-transparent to-red-800" />
-                      <div className="text-center">
-                        <p className="text-sm text-red-800/70 font-medium mb-1">Ngày</p>
-                        <p className="text-xl md:text-2xl font-semibold text-red-900">
-                          Chủ Nhật - 28 - Tháng 12
+                    <div className="text-center space-y-1">
+                      <p className="text-sm text-red-800/70 font-medium">Ngày</p>
+                      <div className="flex items-center justify-center gap-4">
+                        <div className="flex-1 h-px bg-gradient-to-r from-transparent to-red-800" />
+                        <p className="text-xl md:text-2xl font-semibold text-red-900 whitespace-nowrap">
+                          Thứ 7 - Ngày 06 - 06 - 2026
                         </p>
+                        <div className="flex-1 h-px bg-gradient-to-l from-transparent to-red-800" />
                       </div>
-                      <div className="flex-1 h-px bg-gradient-to-l from-transparent to-red-800" />
                     </div>
 
-                    {/* Year */}
-                    <div className="flex items-center justify-center gap-4">
-                      <div className="flex-1 h-px bg-gradient-to-r from-transparent to-red-800" />
-                      <div className="text-center">
-                        <p className="text-sm text-red-800/70 font-medium mb-1">Năm</p>
-                        <p className="text-2xl md:text-3xl font-bold text-red-900">2025</p>
+                    {/* Year
+                    <div className="text-center space-y-1">
+                      <p className="text-sm text-red-800/70 font-medium">Năm</p>
+                      <div className="flex items-center justify-center gap-4">
+                        <div className="flex-1 h-px bg-gradient-to-r from-transparent to-red-800" />
+                        <p className="text-2xl md:text-3xl font-bold text-red-900 whitespace-nowrap">2026</p>
+                        <div className="flex-1 h-px bg-gradient-to-l from-transparent to-red-800" />
                       </div>
-                      <div className="flex-1 h-px bg-gradient-to-l from-transparent to-red-800" />
-                    </div>
+                    </div> */}
                   </div>
 
                   {/* Decorative Hearts */}

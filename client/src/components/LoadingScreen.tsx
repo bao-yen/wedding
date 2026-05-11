@@ -39,7 +39,7 @@ export default function LoadingScreen({ onComplete }: { onComplete: () => void }
               className="text-center"
             >
               <h1 className="font-script text-5xl md:text-7xl text-red-900 mb-2">
-                Văn Thưởng & Xuân Tươi
+                Bảo Yến & Phong Nhã
               </h1>
             </motion.div>
           </motion.div>

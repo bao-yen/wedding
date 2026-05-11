@@ -9,8 +9,8 @@ interface TimeLeft {
 }
 
 export default function Countdown() {
-  // Ngày cưới: 28/12/2025 lúc 12:00
-  const weddingDate = new Date("2025-12-28T12:00:00").getTime();
+  // Ngày cưới: 06/06/2026 lúc 11:00
+  const weddingDate = new Date("2026-06-06T11:00:00").getTime();
 
   const calculateTimeLeft = (): TimeLeft => {
     const now = new Date().getTime();
