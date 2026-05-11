@@ -7,7 +7,7 @@ const plugins = [react(), tailwindcss()];
 
 export default defineConfig({
   plugins,
-  base: '/wedding/',
+  // base: '/wedding/',
   resolve: {
     alias: {
       "@": path.resolve(import.meta.dirname, "client", "src"),

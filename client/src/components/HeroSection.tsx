@@ -53,7 +53,7 @@ export default function HeroSection() {
       >
         <div className="absolute inset-0 bg-black/30 z-10" /> {/* Overlay */}
         <img
-          src={import.meta.env.BASE_URL + "image/20 video/PHIT1470.JPG"}
+          src={import.meta.env.BASE_URL + "image/background.JPG"}
           alt="Wedding Banner"
           className="w-full h-full object-cover"
           loading="eager"

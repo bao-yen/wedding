@@ -5,7 +5,7 @@ import { useState } from "react";
 
 // Dữ liệu ảnh cô dâu chú rể - bạn có thể thay đổi đường dẫn ảnh ở đây
 const WEDDING_PHOTOS = [
-  import.meta.env.BASE_URL + "image/slide/2.jpg",
+  import.meta.env.BASE_URL + "image/slide/2.webp",
   import.meta.env.BASE_URL + "image/slide/3.jpg",
   import.meta.env.BASE_URL + "image/slide/1.jpg",
 ];
