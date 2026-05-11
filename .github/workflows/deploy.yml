@@ -29,8 +29,8 @@ jobs:
       # Cài pnpm trước
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
-        with:
-          version: 10
+        # with:
+        #   version: 10
 
       # Sau đó mới setup Node.js
       - name: Setup Node.js
