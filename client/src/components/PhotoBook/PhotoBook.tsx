@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, useMotionValue, useTransform, AnimatePresence } from "framer-motion";
 import { RotateCcw, ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -26,12 +26,10 @@ export default function PhotoBook() {
   const [direction, setDirection] = useState(0); // 1 = right, -1 = left
 
   const handleSwipe = (swipeDirection: number) => {
-    setDirection(swipeDirection);
-    // Chuyển ảnh ngay lập tức
-    if (currentIndex < PHOTOS.length - 1) {
-      setCurrentIndex(currentIndex + 1);
+    if (swipeDirection > 0) {
+      handlePrev();
     } else {
-      setCurrentIndex(0); // Loop back
+      handleNext();
     }
   };
 
@@ -57,6 +55,14 @@ export default function PhotoBook() {
     setDirection(1);
     setCurrentIndex(0);
   };
+
+  // Auto slide
+  useEffect(() => {
+    const timer = setInterval(() => {
+      handleNext();
+    }, 3000); // 3 seconds
+    return () => clearInterval(timer);
+  }, [currentIndex]);
 
   return (
     <section className="w-full bg-gradient-to-b from-background via-accent/5 to-background py-12 md:py-20 overflow-hidden">
@@ -91,18 +97,27 @@ export default function PhotoBook() {
             />
           </AnimatePresence>
 
-          {/* Background preview cards */}
-          {currentIndex < PHOTOS.length - 1 && (
-            <div className="absolute inset-0 pointer-events-none" style={{ zIndex: 1 }}>
-              <div className="w-full h-full bg-white rounded-3xl shadow-xl overflow-hidden border-4 border-white opacity-30 scale-95 translate-y-2">
-                <img
-                  src={PHOTOS[currentIndex + 1]}
-                  alt="Next preview"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </div>
-          )}
+          <AnimatePresence>
+            {currentIndex < PHOTOS.length - 1 && (
+              <motion.div
+                key={currentIndex + 1}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 0.3, scale: 0.95 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.4 }}
+                className="absolute inset-0 pointer-events-none transform-gpu"
+                style={{ zIndex: 1 }}
+              >
+                <div className="w-full h-full bg-white rounded-3xl shadow-xl overflow-hidden border-4 border-white translate-y-2">
+                  <img
+                    src={PHOTOS[currentIndex + 1]}
+                    alt="Next preview"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
 
         {/* Controls */}
@@ -202,28 +217,24 @@ function SwipeCard({ photo, index, total, onSwipe, direction }: SwipeCardProps) 
   const variants = {
     enter: (direction: number) => ({
       x: direction > 0 ? 300 : -300,
-      opacity: 0,
-      scale: 0.8,
-      rotate: direction > 0 ? 20 : -20,
+      scale: 0.9,
     }),
     center: {
       x: 0,
-      opacity: 1,
       scale: 1,
-      rotate: 0,
+      zIndex: 10,
     },
     exit: (direction: number) => ({
-      x: direction > 0 ? 300 : -300,
-      opacity: 0,
-      scale: 0.8,
-      rotate: direction > 0 ? 20 : -20,
+      x: direction > 0 ? -300 : 300,
+      scale: 0.9,
+      zIndex: 0,
     }),
   };
 
   return (
     <motion.div
-      className="absolute inset-0 cursor-grab active:cursor-grabbing"
-      style={{ x, rotate, opacity, zIndex: 10 }}
+      className="absolute inset-0 cursor-grab active:cursor-grabbing transform-gpu"
+      style={{ x, rotate, opacity, zIndex: 10, backfaceVisibility: "hidden" as any }}
       drag="x"
       dragConstraints={{ left: 0, right: 0 }}
       dragElastic={0.7}
@@ -234,10 +245,8 @@ function SwipeCard({ photo, index, total, onSwipe, direction }: SwipeCardProps) 
       animate="center"
       exit="exit"
       transition={{
-        x: { type: "spring", stiffness: 500, damping: 40 },
-        opacity: { duration: 0.2 },
-        scale: { duration: 0.2 },
-        rotate: { duration: 0.2 },
+        x: { type: "spring", stiffness: 250, damping: 25 },
+        scale: { duration: 0.3 },
       }}
     >
       <div className="relative w-full h-full bg-white rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden border-4 sm:border-8 border-white">

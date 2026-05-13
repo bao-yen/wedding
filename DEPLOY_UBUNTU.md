@@ -72,14 +72,14 @@ sudo systemctl status nginx
 
 ```bash
 cd ~
-git clone https://github.com/your-username/wedding-xuantuoi-vanthuong.git
+git clone https://github.com/bao-yen/wedding.git wedding_yenvtb
 # Hoặc upload code qua SCP/SFTP
 ```
 
 ### Vào thư mục project
 
 ```bash
-cd wedding-xuantuoi-vanthuong
+cd wedding_yenvtb
 ```
 
 ### Tạo file .env.local
@@ -176,7 +176,7 @@ server {
     server_name your-domain.com www.your-domain.com;
 
     # Tạm thời serve trực tiếp (sau này sẽ redirect to HTTPS)
-    root /home/ubuntu/wedding-xuantuoi-vanthuong/dist/public;
+    root /home/ubuntu/wedding_yenvtb/dist/public;
     index index.html;
 
     # Gzip compression
@@ -322,7 +322,7 @@ set -e
 echo "🚀 Starting deployment..."
 
 # Go to project directory
-cd ~/wedding-xuantuoi-vanthuong
+cd ~/wedding_yenvtb
 
 # Pull latest code
 echo "📥 Pulling latest code..."

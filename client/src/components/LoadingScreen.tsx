@@ -38,7 +38,7 @@ export default function LoadingScreen({ onComplete }: { onComplete: () => void }
               transition={{ duration: 1.5, ease: "easeOut" }}
               className="text-center"
             >
-              <h1 className="font-script text-5xl md:text-7xl text-red-900 mb-2">
+              <h1 className="font-script text-4xl md:text-7xl text-red-900 mb-2">
                 Bảo Yến & Phong Nhã
               </h1>
             </motion.div>

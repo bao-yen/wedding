@@ -15,7 +15,13 @@ export const WEDDING_DATA = {
     mother: "Đặng Thị Lượng",
     address: "Xóm Kỳ Nam, Xã Tân Kỳ, Nghệ An",
     mapUrl: "https://maps.app.goo.gl/oH8RK9ct3kfHTXco9",
-    mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3771.5648329430537!2d105.232097!3d19.038887999999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTnCsDAyJzIwLjAiTiAxMDXCsDEzJzU1LjYiRQ!5e0!3m2!1sen!2s!4v1778476993951!5m2!1sen!2s"
+    mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3771.3040938064464!2d105.26536100000001!3d19.050363!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2s!5e0!3m2!1sen!2s!4v1778658403440!5m2!1sen!2s"
+  },
+  restaurant: {
+    name: "Nhà hàng Minh Hải",
+    address: "Số 2, ngõ 10, đường Lê Lợi, khối 3, Xã Tân Kỳ, Nghệ An.",
+    mapUrl: "https://maps.app.goo.gl/mrogceovukgpwoxUA",
+    mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d235.7066816845431!2d105.27023170934243!3d19.05023923034647!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31375bb396da2e15%3A0x6d33f80055dc2664!2zTmjDoCBIw6BuZyBNaW5oIEjhuqNpLSBOZ2jhu4cgQW4!5e0!3m2!1sen!2s!4v1778658175064!5m2!1sen!2s"
   },
   date: "2026-06-06",
   time: "10:00",

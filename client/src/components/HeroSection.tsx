@@ -48,8 +48,8 @@ export default function HeroSection() {
     <div ref={ref} className="relative h-screen w-full overflow-hidden flex items-center justify-center pb-24">
       {/* Parallax Background */}
       <motion.div
-        style={{ y, opacity }}
-        className="absolute inset-0 z-0"
+        style={{ y, opacity, willChange: "transform, opacity" }}
+        className="absolute inset-0 z-0 transform-gpu"
       >
         <div className="absolute inset-0 bg-black/30 z-10" /> {/* Overlay */}
         <img
@@ -77,9 +77,9 @@ export default function HeroSection() {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 1, duration: 1.2 }}
-          className="font-script text-5xl md:text-7xl mb-6 text-accent drop-shadow-lg"
+          className="font-script text-4xl md:text-7xl mb-6 text-accent drop-shadow-lg"
         >
-          {WEDDING_DATA.groom.name} <span className="text-3xl md:text-5xl">&</span> {WEDDING_DATA.bride.name}
+          {WEDDING_DATA.groom.name} <span className="text-3xl md:text-4xl">&</span> {WEDDING_DATA.bride.name}
         </motion.h1>
 
         <motion.div

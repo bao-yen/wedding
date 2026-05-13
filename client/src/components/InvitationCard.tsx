@@ -218,7 +218,7 @@ export default function InvitationCard() {
                       <p className="text-sm text-red-800/70 font-medium">Thời gian</p>
                       <div className="flex items-center justify-center gap-4">
                         <div className="flex-1 h-px bg-gradient-to-r from-transparent to-red-800" />
-                        <p className="text-2xl md:text-3xl font-bold text-red-900 whitespace-nowrap">12:00</p>
+                        <p className="text-2xl md:text-3xl font-bold text-red-900 whitespace-nowrap">11:00</p>
                         <div className="flex-1 h-px bg-gradient-to-l from-transparent to-red-800" />
                       </div>
                     </div>

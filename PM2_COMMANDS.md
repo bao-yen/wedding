@@ -217,7 +217,7 @@ pm2 ecosystem
 
 ### 1. Deploy lần đầu
 ```bash
-cd ~/wedding-xuantuoi-vanthuong
+cd ~/wedding_yenvtb
 pnpm install
 pnpm run build
 mkdir -p logs
@@ -228,7 +228,7 @@ pm2 startup
 
 ### 2. Update code
 ```bash
-cd ~/wedding-xuantuoi-vanthuong
+cd ~/wedding_yenvtb
 git pull
 pnpm install
 pnpm run build

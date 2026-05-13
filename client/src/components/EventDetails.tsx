@@ -199,6 +199,48 @@ export default function EventDetails() {
                 </div>
               </div>
             </motion.div>
+
+            {/* Restaurant Location */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="group relative"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500" />
+              <div className="relative bg-white/90 backdrop-blur-sm p-8 rounded-3xl shadow-2xl border border-primary/20 hover:border-primary/40 transition-all duration-300">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="bg-gradient-to-br from-primary to-accent p-3 rounded-xl text-white shadow-lg">
+                    <MapPin size={24} strokeWidth={2.5} />
+                  </div>
+                  <h3 className="font-serif text-3xl font-bold text-primary">Nhà Hàng Minh Hải</h3>
+                </div>
+                <div className="mb-6 p-4 bg-primary/5 rounded-xl border border-primary/10">
+                  <a
+                    href={WEDDING_DATA.restaurant.mapUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-lg text-foreground font-medium leading-relaxed hover:text-primary transition-colors duration-200 flex items-start gap-2 group"
+                  >
+                    <MapPin size={20} className="shrink-0 mt-1 text-primary group-hover:scale-110 transition-transform" />
+                    <span className="underline-offset-4 group-hover:underline">{WEDDING_DATA.restaurant.address}</span>
+                  </a>
+                </div>
+                <div className="h-64 w-full rounded-2xl overflow-hidden shadow-lg border-2 border-primary/20 hover:border-primary/40 transition-all duration-300">
+                  <iframe
+                    src={WEDDING_DATA.restaurant.mapEmbedUrl}
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Bản đồ nhà hàng"
+                  />
+                </div>
+              </div>
+            </motion.div>
           </div>
         </div>
       </div>

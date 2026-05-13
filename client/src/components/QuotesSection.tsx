@@ -14,7 +14,7 @@ export default function QuotesSection() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.2, duration: 0.8 }}
               viewport={{ once: true }}
-              className="relative p-8 bg-white rounded-xl shadow-md border border-border group hover:-translate-y-2 transition-transform duration-300"
+              className="relative p-8 bg-white rounded-xl shadow-md border border-border group md:hover:-translate-y-2 transition-transform duration-300"
             >
               <div className="absolute -top-6 left-8 bg-accent text-accent-foreground p-3 rounded-full shadow-lg">
                 <Quote size={24} fill="currentColor" />

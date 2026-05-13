@@ -118,7 +118,7 @@ Vercel sẽ tự động deploy khi push lên main branch.
 ## 🗂️ Cấu trúc Project
 
 ```
-wedding-xuantuoi-vanthuong/
+wedding_yenvtb/
 ├── api/                    # Vercel API Routes (Production)
 │   ├── submit-wish.ts     # POST endpoint gửi lời chúc
 │   └── get-wishes.ts      # GET endpoint lấy lời chúc

@@ -36,7 +36,8 @@ const TimelineItem = ({
         initial={{ opacity: 0, x: align === 'left' ? -50 : 50 }}
         animate={inView ? { opacity: 1, x: 0 } : {}}
         transition={{ duration: 0.8 }}
-        className="w-full md:w-5/12 relative group"
+        className="w-full md:w-5/12 relative group transform-gpu"
+        style={{ willChange: "transform, opacity" }}
       >
         <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-primary/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100" />
         <div className="relative p-8 bg-white/90 backdrop-blur-sm shadow-2xl rounded-2xl border border-accent/20 hover:border-accent/40 transition-all duration-300 hover:-translate-y-1">
@@ -57,7 +58,7 @@ const TimelineItem = ({
           initial={{ scale: 0 }}
           animate={inView ? { scale: 1 } : {}}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="relative"
+          className="relative transform-gpu"
         >
           <div className="w-6 h-6 bg-gradient-to-br from-accent to-primary rounded-full ring-8 ring-accent/20 shadow-lg" />
           <motion.div
@@ -109,7 +110,8 @@ export default function AboutSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={headerInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-20"
+          className="text-center mb-20 transform-gpu"
+          style={{ willChange: "transform, opacity" }}
         >
           <motion.div
             initial={{ scale: 0 }}
@@ -182,7 +184,8 @@ export default function AboutSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="text-center mb-16"
+            className="text-center mb-16 transform-gpu"
+            style={{ willChange: "transform, opacity" }}
           >
             <h3 className="font-script text-5xl md:text-6xl text-primary mb-4">The Happy Couple</h3>
             <div className="w-24 h-1 bg-gradient-to-r from-transparent via-accent to-transparent mx-auto" />
@@ -203,7 +206,7 @@ export default function AboutSection() {
                   <div className="aspect-[3/4] bg-gradient-to-br from-gray-100 to-gray-200 relative overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10" />
                     <img
-                      src={import.meta.env.BASE_URL + "image/chú rể.JPG"}
+                      src={import.meta.env.BASE_URL + "image/groom.JPG"}
                       alt="Chú Rể"
                       className="w-full h-full object-cover object-center"
                       loading="lazy"
@@ -252,7 +255,7 @@ export default function AboutSection() {
                   <div className="aspect-[3/4] bg-gradient-to-br from-gray-100 to-gray-200 relative overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-br from-accent/10 to-primary/10" />
                     <img
-                      src={import.meta.env.BASE_URL + "/image/cô dâu.JPG"}
+                      src={import.meta.env.BASE_URL + "image/bride.JPG"}
                       alt="Cô Dâu"
                       className="w-full h-full object-cover object-center"
                       loading="lazy"
