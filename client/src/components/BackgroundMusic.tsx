@@ -3,145 +3,98 @@ import { Volume2, VolumeX, Music, Heart } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import confetti from "canvas-confetti";
 
-// Thay đổi VIDEO_ID này thành ID của video YouTube bạn muốn
-// Ví dụ: https://www.youtube.com/watch?v=dQw4w9WgXcQ => VIDEO_ID = "dQw4w9WgXcQ"
-const YOUTUBE_VIDEO_ID = "0H88LgRuC6M"; // Silverscrape - League of Legends
-
-declare global {
-  interface Window {
-    YT: any;
-    onYouTubeIframeAPIReady: () => void;
-  }
-}
-
 export default function BackgroundMusic() {
   const [isPlaying, setIsPlaying] = useState(false);
-  const [player, setPlayer] = useState<any>(null);
-  const [showWelcome, setShowWelcome] = useState(false); // Bắt đầu là false
-  const playerRef = useRef<HTMLDivElement>(null);
-  const volumeIntervalRef = useRef<any>(null);
-  const loopIntervalRef = useRef<any>(null);
-  const [isReady, setIsReady] = useState(false);
+  const [showWelcome, setShowWelcome] = useState(false);
+  const audioRef = useRef<HTMLAudioElement>(null);
+  const fadeIntervalRef = useRef<any>(null);
 
   useEffect(() => {
     // Delay hiển thị modal sau khi LoadingScreen kết thúc (3 giây)
     const delayTimer = setTimeout(() => {
       setShowWelcome(true);
-    }, 3000); // 3s loading, hiển thị ngay sau khi LoadingScreen kết thúc
+    }, 3000);
 
     return () => clearTimeout(delayTimer);
   }, []);
 
-  useEffect(() => {
-    // Load YouTube IFrame API
-    const tag = document.createElement("script");
-    tag.src = "https://www.youtube.com/iframe_api";
-    const firstScriptTag = document.getElementsByTagName("script")[0];
-    firstScriptTag.parentNode?.insertBefore(tag, firstScriptTag);
-
-    // Initialize player when API is ready
-    window.onYouTubeIframeAPIReady = () => {
-      const ytPlayer = new window.YT.Player("youtube-player", {
-        height: "1",
-        width: "1",
-        videoId: YOUTUBE_VIDEO_ID,
-        playerVars: {
-          autoplay: 1,
-          playsinline: 1, // Quan trọng để không hiện video trên mobile
-          start: 8,
-          end: 261,
-          controls: 0,
-          showinfo: 0,
-          modestbranding: 1,
-          rel: 0,
-          mute: 1, // Bắt đầu ở chế độ tắt tiếng để lách luật autoplay của trình duyệt
-        },
-        events: {
-          onReady: (event: any) => {
-            const ytPlayer = event.target;
-            ytPlayer.playVideo(); // Thử play ngay (vì đã mute nên tỉ lệ thành công cao)
-            
-            // Manual loop check (Secondary fallback)
-            if (loopIntervalRef.current) clearInterval(loopIntervalRef.current);
-            loopIntervalRef.current = setInterval(() => {
-              const currentTime = ytPlayer.getCurrentTime();
-              if (currentTime >= 261) {
-                ytPlayer.seekTo(8);
-                ytPlayer.playVideo();
-              }
-            }, 1000);
-
-            setPlayer(ytPlayer);
-            setIsReady(true);
-          },
-          onStateChange: (event: any) => {
-            // Update playing state
-            if (event.data === window.YT.PlayerState.PLAYING) {
-              setIsPlaying(true);
-            } else if (event.data === window.YT.PlayerState.PAUSED) {
-              setIsPlaying(false);
-            }
-            // Auto-replay if ended
-            if (event.data === window.YT.PlayerState.ENDED) {
-              event.target.seekTo(8); // Quay lại giây thứ 8
-              event.target.playVideo();
-            }
-          },
-        },
-      });
-    };
-
-    return () => {
-      if (volumeIntervalRef.current) clearInterval(volumeIntervalRef.current);
-      if (loopIntervalRef.current) clearInterval(loopIntervalRef.current);
-    };
-  }, []);
-
-  const handleWelcomeClick = () => {
-    if (player && isReady) {
-      // Trigger pháo hoa
-      const duration = 3000;
-      const animationEnd = Date.now() + duration;
-      const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 150 };
-
-      const randomInRange = (min: number, max: number) => Math.random() * (max - min) + min;
-
-      const interval: any = setInterval(function () {
-        const timeLeft = animationEnd - Date.now();
-
-        if (timeLeft <= 0) {
-          return clearInterval(interval);
-        }
-
-        const particleCount = 50 * (timeLeft / duration);
-        confetti({
-          ...defaults,
-          particleCount,
-          origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 },
-        });
-        confetti({
-          ...defaults,
-          particleCount,
-          origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 },
-        });
-      }, 250);
-
-      // Play music
-      player.unMute(); // Mở tiếng
-      player.setVolume(50);
-      player.playVideo()
-      setIsPlaying(true);
-      setShowWelcome(false);
+  const handleTimeUpdate = () => {
+    if (audioRef.current) {
+      // Loop from 261s (4:21) back to 8s
+      if (audioRef.current.currentTime >= 261) {
+        audioRef.current.currentTime = 8;
+      }
     }
   };
 
+  const handleWelcomeClick = () => {
+    // Trigger pháo hoa
+    const duration = 3000;
+    const animationEnd = Date.now() + duration;
+    const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 150 };
+
+    const randomInRange = (min: number, max: number) => Math.random() * (max - min) + min;
+
+    const interval: any = setInterval(function () {
+      const timeLeft = animationEnd - Date.now();
+
+      if (timeLeft <= 0) {
+        return clearInterval(interval);
+      }
+
+      const particleCount = 50 * (timeLeft / duration);
+      confetti({
+        ...defaults,
+        particleCount,
+        origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 },
+      });
+      confetti({
+        ...defaults,
+        particleCount,
+        origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 },
+      });
+    }, 250);
+
+    // Play music from the audio tag
+    if (audioRef.current) {
+      // Set to 8s and start muted (volume = 0)
+      audioRef.current.volume = 0;
+      audioRef.current.currentTime = 8;
+      audioRef.current.play().then(() => {
+        setIsPlaying(true);
+        
+        // Fade in volume (HTML5 audio volume is from 0.0 to 1.0, 50% = 0.5)
+        let currentVolume = 0;
+        const targetVolume = 0.5;
+        const step = 0.02; // Tăng 2%
+        const intervalTime = 100; // mỗi 0.1s tăng 2% => 2.5s đạt 50%
+
+        if (fadeIntervalRef.current) clearInterval(fadeIntervalRef.current);
+        fadeIntervalRef.current = setInterval(() => {
+          currentVolume += step;
+          if (currentVolume >= targetVolume) {
+            if (audioRef.current) audioRef.current.volume = targetVolume;
+            clearInterval(fadeIntervalRef.current);
+          } else {
+            if (audioRef.current) audioRef.current.volume = currentVolume;
+          }
+        }, intervalTime);
+
+      }).catch(err => {
+        console.error("Lỗi phát audio:", err);
+      });
+    }
+
+    setShowWelcome(false);
+  };
+
   const togglePlay = () => {
-    if (player && isReady) {
+    if (audioRef.current) {
       if (isPlaying) {
-        player.pauseVideo();
+        audioRef.current.pause();
         setIsPlaying(false);
       } else {
-        player.playVideo();
+        audioRef.current.play();
         setIsPlaying(true);
       }
     }
@@ -149,25 +102,17 @@ export default function BackgroundMusic() {
 
   return (
     <>
-      {/* Invisible YouTube Player */}
-      <div
-        id="youtube-player"
-        ref={playerRef}
-        style={{
-          position: "fixed",
-          left: "0",
-          top: "0",
-          width: "1px",
-          height: "1px",
-          opacity: "0.01",
-          pointerEvents: "none",
-          zIndex: -1,
-        }}
+      <audio 
+        ref={audioRef}
+        src={import.meta.env.BASE_URL + "audio/background.mp3"}
+        onTimeUpdate={handleTimeUpdate}
+        preload="auto"
+        loop
       />
 
       {/* Welcome Overlay - Show on first load */}
       <AnimatePresence>
-        {showWelcome && isReady && (
+        {showWelcome && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
