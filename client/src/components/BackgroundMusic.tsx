@@ -5,7 +5,7 @@ import confetti from "canvas-confetti";
 
 // Thay đổi VIDEO_ID này thành ID của video YouTube bạn muốn
 // Ví dụ: https://www.youtube.com/watch?v=dQw4w9WgXcQ => VIDEO_ID = "dQw4w9WgXcQ"
-const YOUTUBE_VIDEO_ID = "2Mfrnpem1VY"; // Silverscrape - League of Legends
+const YOUTUBE_VIDEO_ID = "0H88LgRuC6M"; // Silverscrape - League of Legends
 
 declare global {
   interface Window {
@@ -19,6 +19,8 @@ export default function BackgroundMusic() {
   const [player, setPlayer] = useState<any>(null);
   const [showWelcome, setShowWelcome] = useState(false); // Bắt đầu là false
   const playerRef = useRef<HTMLDivElement>(null);
+  const volumeIntervalRef = useRef<any>(null);
+  const loopIntervalRef = useRef<any>(null);
   const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
@@ -40,21 +42,36 @@ export default function BackgroundMusic() {
     // Initialize player when API is ready
     window.onYouTubeIframeAPIReady = () => {
       const ytPlayer = new window.YT.Player("youtube-player", {
-        height: "0",
-        width: "0",
+        height: "1",
+        width: "1",
         videoId: YOUTUBE_VIDEO_ID,
         playerVars: {
-          autoplay: 0, // Không autoplay - đợi user click
-          loop: 1,
-          playlist: YOUTUBE_VIDEO_ID, // Required for looping
+          autoplay: 1,
+          playsinline: 1, // Quan trọng để không hiện video trên mobile
+          start: 8,
+          end: 261,
           controls: 0,
           showinfo: 0,
           modestbranding: 1,
+          rel: 0,
+          mute: 1, // Bắt đầu ở chế độ tắt tiếng để lách luật autoplay của trình duyệt
         },
         events: {
           onReady: (event: any) => {
-            event.target.setVolume(50); // Set volume to 50%
-            setPlayer(event.target);
+            const ytPlayer = event.target;
+            ytPlayer.playVideo(); // Thử play ngay (vì đã mute nên tỉ lệ thành công cao)
+            
+            // Manual loop check (Secondary fallback)
+            if (loopIntervalRef.current) clearInterval(loopIntervalRef.current);
+            loopIntervalRef.current = setInterval(() => {
+              const currentTime = ytPlayer.getCurrentTime();
+              if (currentTime >= 261) {
+                ytPlayer.seekTo(8);
+                ytPlayer.playVideo();
+              }
+            }, 1000);
+
+            setPlayer(ytPlayer);
             setIsReady(true);
           },
           onStateChange: (event: any) => {
@@ -66,11 +83,17 @@ export default function BackgroundMusic() {
             }
             // Auto-replay if ended
             if (event.data === window.YT.PlayerState.ENDED) {
+              event.target.seekTo(8); // Quay lại giây thứ 8
               event.target.playVideo();
             }
           },
         },
       });
+    };
+
+    return () => {
+      if (volumeIntervalRef.current) clearInterval(volumeIntervalRef.current);
+      if (loopIntervalRef.current) clearInterval(loopIntervalRef.current);
     };
   }, []);
 
@@ -104,7 +127,9 @@ export default function BackgroundMusic() {
       }, 250);
 
       // Play music
-      player.playVideo();
+      player.unMute(); // Mở tiếng
+      player.setVolume(50);
+      player.playVideo()
       setIsPlaying(true);
       setShowWelcome(false);
     }
@@ -124,11 +149,20 @@ export default function BackgroundMusic() {
 
   return (
     <>
-      {/* Hidden YouTube Player */}
+      {/* Invisible YouTube Player */}
       <div
         id="youtube-player"
         ref={playerRef}
-        style={{ display: "none" }}
+        style={{
+          position: "fixed",
+          left: "0",
+          top: "0",
+          width: "1px",
+          height: "1px",
+          opacity: "0.01",
+          pointerEvents: "none",
+          zIndex: -1,
+        }}
       />
 
       {/* Welcome Overlay - Show on first load */}

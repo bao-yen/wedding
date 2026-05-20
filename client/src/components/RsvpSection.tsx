@@ -7,7 +7,7 @@ import { WEDDING_DATA } from "../../../shared/weddingData";
 export default function RsvpSection() {
   const [copied, setCopied] = useState(false);
   const searchParams = new URLSearchParams(window.location.search);
-  const hideGiftBox = searchParams.get("no-pr") === "1";
+  const hideGiftBox = searchParams.get("no-pr");
 
   const handleCopy = () => {
     navigator.clipboard.writeText(WEDDING_DATA.bank.accountNumber);

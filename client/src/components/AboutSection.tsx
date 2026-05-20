@@ -154,7 +154,7 @@ export default function AboutSection() {
             icon="first"
           />
           <TimelineItem 
-            year="2024" 
+            year="2025" 
             title="Lời tỏ tình" 
             description="Hành trình từ 'người được mai mối' trở thành người yêu chính thức chẳng hề dễ dàng, bởi anh đã phải kiên nhẫn ngỏ lời tới tận lần thứ 3 mới nhận được sự đồng ý. Chính sự chân thành và kiên định không bỏ cuộc ấy đã hoàn toàn thuyết phục được em, đánh dấu một cột mốc ngọt ngào mới của hai đứa." 
             align="right"
@@ -206,7 +206,7 @@ export default function AboutSection() {
                   <div className="aspect-[3/4] bg-gradient-to-br from-gray-100 to-gray-200 relative overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10" />
                     <img
-                      src={import.meta.env.BASE_URL + "image/groom.JPG"}
+                      src={import.meta.env.BASE_URL + "image/groom.jpg"}
                       alt="Chú Rể"
                       className="w-full h-full object-cover object-center"
                       loading="lazy"
@@ -255,7 +255,7 @@ export default function AboutSection() {
                   <div className="aspect-[3/4] bg-gradient-to-br from-gray-100 to-gray-200 relative overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-br from-accent/10 to-primary/10" />
                     <img
-                      src={import.meta.env.BASE_URL + "image/bride.JPG"}
+                      src={import.meta.env.BASE_URL + "image/bride.jpg"}
                       alt="Cô Dâu"
                       className="w-full h-full object-cover object-center"
                       loading="lazy"
